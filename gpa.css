@@ -1,3 +1,27 @@
+h1 {
+    text-align: -webkit-center;
+    font-weight: bold;
+    font-size: -webkit-xxx-large;
+}
+
+#gpa-result {
+    margin: 5% 0px;
+    background-color: grey;
+    color: white;
+    text-align: -webkit-center;
+    height: 70px;
+    padding: 8px;
+    font-size: 3em;
+}
+
+#table-container {
+  border: 2px solid grey;
+  border-radius: 20px;
+  margin: auto;
+  padding: 15px;
+  width: 570px;
+}
+
 .t-header {
     font-weight: bold;
 }
@@ -10,6 +34,11 @@ input:invalid {
     width: 35%;
 }
 
-.course_credits, .course_grade, .course_remove {
+.credits {
+    width: 50px;
+    text-align: -webkit-center;
+}
+
+.course_credit, .course_grade, .course_remove {
     width: 15%;
 }
