@@ -3,8 +3,15 @@ angular.module('app', [])
 
 function mainCtrl ($scope)
 {
-    $scope.GPA = '___'
-    $scope.courses = [{credits: 3, grade: 'A'}, {credits: 3, grade: 'A-'}, {credits: 3, grade: 'A'}, {credits: 3, grade: 'A'}, {credits: 3, grade: 'A'}];
+    $scope.GPA = 4;
+    $scope.course_count = 5;
+    $scope.courses = [
+	{name: "Course 1", credits: 3, grade: 'A'}, 
+	{name: "Course 2", credits: 3, grade: 'A'}, 
+	{name: "Course 3", credits: 3, grade: 'A'}, 
+	{name: "Course 4", credits: 3, grade: 'A'}, 
+	{name: "Course 5", credits: 3, grade: 'A'}
+    ];
     $scope.gradesMap = {};
     $scope.gradesMap["A"] = 4;
     $scope.gradesMap["A-"] = 3.7;
@@ -21,14 +28,17 @@ function mainCtrl ($scope)
     $scope.gradeOptions = Object.keys($scope.gradesMap);
     
     $scope.addCourse = function() {
-        $scope.courses.push({
+	$scope.courses.push({
+	    name: "Course " + (++$scope.course_count),
             credits: 3,
             grade: 'A'
         });
+	$scope.updateGPA();
     }
     
     $scope.removeCourse = function(i) {
         $scope.courses.splice(i,1);
+        $scope.course_count--;
         $scope.updateGPA();
     }
     
@@ -39,10 +49,11 @@ function mainCtrl ($scope)
         var pts = 0;
         var totalCredits = 0;
         angular.forEach($scope.courses, function(course, key) {
+		console.log("Entered");
 //            console.log("Credits: "+course.credits+" | Grade: "+course.grade+" | Weight: "+$scope.gradesMap[course.grade]);
-            if($scope.credits){
-                pts += (course.credits * $scope.gradesMap[course.grade]);
-                totalCredits += course.credits;
+            if(course.credits){
+                pts += (parseFloat(course.credits) * parseFloat($scope.gradesMap[course.grade]));
+                totalCredits += parseFloat(course.credits);
             }
         })
         console.log("Points: " +pts+" | Credits "+totalCredits);

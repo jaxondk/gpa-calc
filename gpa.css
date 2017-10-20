@@ -1,0 +1,15 @@
+.t-header {
+    font-weight: bold;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+.course_name {
+    width: 35%;
+}
+
+.course_credits, .course_grade, .course_remove {
+    width: 15%;
+}
