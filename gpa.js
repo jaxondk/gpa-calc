@@ -3,7 +3,7 @@ angular.module('app', [])
 
 function mainCtrl ($scope)
 {
-    $scope.GPA = 4;
+    $scope.GPA = (4).toFixed(2);
     $scope.course_count = 5;
     $scope.courses = [
 	{name: "Course 1", credits: 3, grade: 'A'}, 
@@ -57,6 +57,6 @@ function mainCtrl ($scope)
             }
         })
         console.log("Points: " +pts+" | Credits "+totalCredits);
-        $scope.GPA = (pts / totalCredits);
+        $scope.GPA = (pts / totalCredits).toFixed(2);
     }
 }
